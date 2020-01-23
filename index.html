@@ -30,6 +30,12 @@
             opacity: 80%;
             margin: auto;
         }
+        
+        #chandalo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
     </style>
 </head>
 
@@ -50,6 +56,7 @@
         <h5><a href="http://krishna-apps.github.io/" target="_blank" rel="noopener noreferrer">કૃષ્ણ એપ્પ્સની પ્રેમપૂર્ણ રજુવાત</a></h5>
     </div>
     <img src="ezgif.com-optimize.gif" alt="" style="width: 70%;">
+    <a id="chandalo" href=''>ઓનલાઇન ચાંદલો</a>
     <script>
         var l = window.location.toString();
         if (l.includes('?')) {
@@ -61,8 +68,16 @@
 
         }
         setTimeout(function() {
-            window.location = window.location.toString().replace('dmcw1', 'mayank-wedding');
-        }, 3500);
+            window.location = window.location.toString().replace('dmcw1', 'mayank-wedding') + '&' + names[ind - 1];
+        }, 4500);
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        var isAndroid = /(android)/i.test(navigator.userAgent);
+        var isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+        if (isAndroid || isIos) {
+            $('#chandalo').attr('href', "upi://pay?pa=8127987043@ybl&pn=Mayank%20Kumar%20Chaudhari&mc=0000&et=PPAlg42&ep=KsuNoMxyyVR1WiKw3GzhaADpFYYuw_MMtB7mn_n-lA2lMnCQ8Jmb4JEkFN4yVi5nDkmJRA1ERDgQX1Y1F4458UuHc_sNhSHehXFWME6TvmE=&mode=02&purpose=00");
+        } else {
+            $('#chandalo').hide();
+        }
     </script>
 </body>
 
