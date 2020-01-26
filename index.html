@@ -62,8 +62,10 @@
         var l = window.location.toString();
         let ind = 0;
         if (l.includes('?')) {
-            ind = l.substr(l.indexOf('?') + 1);
-            if (ind < names.length) {
+            ind = l.substr(l.indexOf('?') + 1).trim();
+            if (ind == '796') {
+
+            } else if (ind < names.length) {
                 $('#qr').attr("src", "cards/qr_card-" + ind + ".png");
             }
         } else {
@@ -73,7 +75,10 @@
         console.log(ind);
 
         function redirect() {
-            window.location = window.location.toString().replace('dmcw1', 'mayank-wedding');
+            if (ind == '796') {
+                window.location = window.location.toString().replace('dmcw1', 'mayank-wedding').replace(ind, 'Jigarbhai');
+            } else
+                window.location = window.location.toString().replace('dmcw1', 'mayank-wedding');
         }
         setTimeout(redirect, 4500);
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
